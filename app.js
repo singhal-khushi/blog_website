@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var expressSanitizer = require("express-sanitizer");
 const connectdb = require("./config");
+const port=5000;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -109,6 +110,6 @@ app.delete("/blogs/:id", function(req, res){
  });
 
 //- - - Start Server - - -
-app.listen(3000,function(){
-    console.log("Restful Blog App server listening at port 3000");
-});
+app.listen(process.env.PORT || port() => 
+    console.log(`Restful Blog App server listening at port ${port}`);
+);
